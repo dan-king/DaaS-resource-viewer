@@ -20,10 +20,21 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')) 
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')) // redirect JS jQuery
 app.use('/bs', express.static(__dirname + '/node_modules/bootstrap/dist/js')) // redirect bootstrap JS
 
+app.use('/datatables', express.static(__dirname + '/node_modules/datatables.net/js'))
+app.use('/datatables_bs4', express.static(__dirname + '/node_modules/datatables.net-bs4'))
+
+
+
 // ===============================================
 // Define static public directory
 // ===============================================
 app.use(express.static(__dirname + '/public'))
+
+// ===============================================
+// Set mock data
+// ===============================================
+app.locals.mock_data_title = config.mock_data_title
+app.locals.mock_data_content = config.mock_data_content
 
 // ===============================================
 // Set page title
