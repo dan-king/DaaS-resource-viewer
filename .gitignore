@@ -1,6 +1,9 @@
 # Config
 config.json
 
+# eslint
+.eslintrc.json
+
 # Logs
 logs
 *.log

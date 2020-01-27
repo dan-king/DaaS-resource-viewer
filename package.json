@@ -8,5 +8,17 @@
   },
   "keywords": [],
   "author": "Dan King <dan.king@vptech.io> (https://www.vptech.io)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "datatables.net": "^1.10.20",
+    "datatables.net-bs4": "^1.10.20",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.5.3",
+    "jquery": "^3.4.1",
+    "request": "^2.88.0",
+    "serve-favicon": "^2.5.0"
+  }
 }

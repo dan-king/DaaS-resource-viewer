@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="DaaS Docs">
+    <link rel="stylesheet" type="text/css" href="/application.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .navbar-brand>img {
+            margin-top:-5px;
+        }
+        .deleted_apps, .deleted_users, .fail {
+            /*background-color: pink;*/
+            text-decoration: line-through;
+            text-decoration-color: red;
+        }
+    </style>
+    <script src="/js/jquery.min.js"></script>
+<style>
+.bgbranding { 
+    background: url("/img/logo.png") no-repeat center center; 
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    min-height: 700px;
+}
+</style>
+</head>
+<body>
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="/home"><img alt="Home" src="/img/logo.png" height="20"> Home</a>
+        </div>
+    </nav>
+    <div class="container">
+        {{{body}}}
+    </div>
+    <footer class="page-footer">
+         &copy; {{ copyrightYear }} {{ copyrightMessage }}
+        <br/>
+    </footer>
+    <script src="/bs/bootstrap.min.js"></script>
+</body>
+</html>

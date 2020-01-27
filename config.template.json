@@ -1,0 +1,6 @@
+{
+    "env": "development",
+    "port" : "3011",
+    "pageTitle": "[set page title in config.json]",
+    "copyright": "[set copyright in config.json]"
+}
