@@ -3,7 +3,7 @@ var router = express.Router()
 
 // Homepage
 router.get('/', function(req, res){
-    const csvFilePath='./public/csv/mock.csv'
+    const csvFilePath='./public/csv/mock100.csv'
     const csv=require('csvtojson')
     csv()
         .fromFile(csvFilePath)
@@ -15,6 +15,5 @@ router.get('/', function(req, res){
                 data_content: data_content
             })
         })
-
 })
 module.exports = router

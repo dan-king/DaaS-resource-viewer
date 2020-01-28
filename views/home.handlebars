@@ -1,25 +1,27 @@
 <div class="jumbotron bgbranding">
-    <div class="container corner50" style="background-color: #f5f5ff;">
+    <div class="container corner50" style="background-color: #f5f5ff">
         <h3>{{data_title}}</h3>
         <div id="data_content"></div>
         <div>
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Longitude</th>
-                        <th>Latitude</th>
+                        <th>BLKLOT</th>
+                        <th>Lot Suffix</th>
+                        <th>Lot Number</th>
+                        <th>Block Suffix</th>
+                        <th>Block Number</th>
+                        <th>Volume Number</th>
+                        <th>Owner SeqNumber</th>
+                        <th>Owner Name</th>
+                        <th>Owner Entry Date</th>
+                        <th>Owner Lot Status</th>
+                        <th>Owner Rec Bk</th>
+                        <th>Owner Rec Pg</th>
+                        <th>Owner Trans Type</th>
+                        <th>Owner Update Date</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Longitude</th>
-                        <th>Latitude</th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div><!-- /container -->
@@ -35,10 +37,20 @@ $(function(){
     $('#example').DataTable( {
         "data": data_content_json,
         "columns": [
-            { "data": "id" },
-            { "data": "name" },
-            { "data": "longitude" },
-            { "data": "latitude" }
+            { "data": "BLKLOT" },
+            { "data": "LotSuffix" },
+            { "data": "LotNumber" },
+            { "data": "BlockSuffix" },
+            { "data": "BlockNumber" },
+            { "data": "VolumeNumber" },
+            { "data": "OwnerSeqNumber" },
+            { "data": "OwnerName" },
+            { "data": "OwnerEntryDate" },
+            { "data": "OwnerLotStatus" },
+            { "data": "OwnerRecBk" },
+            { "data": "OwnerRecPg" },
+            { "data": "OwnerTransType" },
+            { "data": "OwnerUpdateDate" }
         ]
         })
 })
