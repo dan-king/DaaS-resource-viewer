@@ -3,25 +3,7 @@
     "port": "3011",
     "pageTitle": "[set page title in config.json]",
     "copyright": "[set copyright in config.json]",
+    "mock_data_file": "mock.csv",
     "mock_data_title": "Mock Data Table Name",
-    "mock_data_content": [
-        {
-            "id": 1,
-            "name": "Golden Gate Bridge",
-            "longitude": -122.478611,
-            "latitude": 37.819722
-        },
-        {
-            "id": 2,
-            "name": "Telegraph Hill",
-            "longitude": -122.40587,
-            "latitude": 37.802409
-        },
-        {
-            "id": 3,
-            "name": "Treasure Island",
-            "longitude": -122.37,
-            "latitude": 37.82
-        }
-    ]
+    "mock_field_list": ["ID","Name","Longitude","Latitude"]
 }

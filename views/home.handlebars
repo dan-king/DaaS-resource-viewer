@@ -6,20 +6,9 @@
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>BLKLOT</th>
-                        <th>Lot Suffix</th>
-                        <th>Lot Number</th>
-                        <th>Block Suffix</th>
-                        <th>Block Number</th>
-                        <th>Volume Number</th>
-                        <th>Owner SeqNumber</th>
-                        <th>Owner Name</th>
-                        <th>Owner Entry Date</th>
-                        <th>Owner Lot Status</th>
-                        <th>Owner Rec Bk</th>
-                        <th>Owner Rec Pg</th>
-                        <th>Owner Trans Type</th>
-                        <th>Owner Update Date</th>
+                        {{#each field_list}}
+                            <th>{{ this }}</th>
+                        {{/each}}
                     </tr>
                 </thead>
             </table>
@@ -32,26 +21,14 @@
 // ===========================================================
 $(function(){
     var data_content_json = {{{json data_content}}}
-    var data_content_text = JSON.stringify(data_content_json)
-    //$("#data_content").append(data_content_text)
+    var col_array = []
+    {{#each field_list}}
+        var obj = { "data": "{{this}}" }
+        col_array.push(obj)
+    {{/each}}
     $('#example').DataTable( {
         "data": data_content_json,
-        "columns": [
-            { "data": "BLKLOT" },
-            { "data": "LotSuffix" },
-            { "data": "LotNumber" },
-            { "data": "BlockSuffix" },
-            { "data": "BlockNumber" },
-            { "data": "VolumeNumber" },
-            { "data": "OwnerSeqNumber" },
-            { "data": "OwnerName" },
-            { "data": "OwnerEntryDate" },
-            { "data": "OwnerLotStatus" },
-            { "data": "OwnerRecBk" },
-            { "data": "OwnerRecPg" },
-            { "data": "OwnerTransType" },
-            { "data": "OwnerUpdateDate" }
-        ]
-        })
+        "columns": col_array
+    })
 })
 </script>

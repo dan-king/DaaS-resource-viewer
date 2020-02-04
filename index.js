@@ -33,8 +33,9 @@ app.use(express.static(__dirname + '/public'))
 // ===============================================
 // Set mock data
 // ===============================================
+app.locals.mock_data_file = config.mock_data_file
 app.locals.mock_data_title = config.mock_data_title
-app.locals.mock_data_content = config.mock_data_content
+app.locals.mock_field_list = config.mock_field_list
 
 // ===============================================
 // Set page title
