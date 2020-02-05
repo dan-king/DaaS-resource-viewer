@@ -1,9 +1,9 @@
 {
     "env": "development",
     "port": "3011",
-    "pageTitle": "[set page title in config.json]",
-    "copyright": "[set copyright in config.json]",
+    "pageTitle": "[Set page title in config.json]",
+    "copyright": "[Set copyright in config.json]",
     "mock_data_file": "mock.csv",
-    "mock_data_title": "Mock Data Table Name",
+    "mock_data_title": "[Set data title in config.json]",
     "mock_field_list": ["ID","Name","Longitude","Latitude"]
 }
