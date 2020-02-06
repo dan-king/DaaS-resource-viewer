@@ -36,6 +36,9 @@ app.use(express.static(__dirname + '/public'))
 app.locals.mock_data_file = config.mock_data_file
 app.locals.mock_data_title = config.mock_data_title
 app.locals.mock_field_list = config.mock_field_list
+app.locals.ckan_resource_id = config.ckan_resource_id
+app.locals.ckan_token = config.ckan_token
+app.locals.wso2_token = config.wso2_token
 
 // ===============================================
 // Set page title
@@ -114,10 +117,36 @@ app.use(function(err, req, res, next){
     res.render('500')
 })
 
-getCSVFileFromInternet()
+//readJsonFile()
+function readJsonFile() {
+    console.log('BEGIN readJsonFile')
+    //const fs = require('fs')
+    const filepath = './json/starbucks10.json'
+
+    const jsonfile = require(filepath)
+    console.log('jsonfile:', jsonfile) 
+
+    console.log("*************************************")
+
+    var payload = jsonfile.result.records
+    console.log('payload:', payload) 
+
+
+    console.log("*************************************")
+    // fs.readFile(filepath, function(err, data) {
+    //     if (err) { 
+    //         console.log('err:', err) 
+    //     } else {
+    //         console.log('data:', data) 
+    //     }
+    // })
+    console.log('END readJsonFile')
+}
+
+//getCSVFileFromInternet()
 function getCSVFileFromInternet() {
-    const fs = require('fs')
     console.log('BEGIN getCSVFileFromInternet')
+    const fs = require('fs')
     var request = require('request')
 
     var url = 'https://www.stats.govt.nz/assets/Uploads/National-population-estimates/National-population-estimates-At-30-June-2018/Download-data/national-population-estimates-at-30-june-2018-components-of-population-change-csv.csv'
@@ -134,7 +163,7 @@ function getCSVFileFromInternet() {
             console.log('err:', err) 
         } else if (body) {
             console.log('body:', body) 
-            fs.writeFile('./public/csv/nz.csv', body, function(err) {
+            fs.writeFile('./public/csv/starbucks.csv', body, function(err) {
                 if (err) {
                     return console.log(err)
                 }
@@ -146,4 +175,42 @@ function getCSVFileFromInternet() {
     })
 
     console.log('END getCSVFileFromInternet')
+}
+
+getJsonFileFromInternet()
+function getJsonFileFromInternet() {
+    console.log('BEGIN getJsonFileFromInternet')
+    const fs = require('fs')
+    var request = require('request')
+
+    var url = 'https://daas07.sfgov.org:8243/daas_prod/3.0.1/action/datastore_search?resource_id=' + config.ckan_resource_id + '&q=STARBUCKS&limit=1000'
+
+    const options = {
+        url: url,
+        method: 'GET',
+        timeout: 5500,
+        headers: {
+            Authorization : 'Bearer ' + config.wso2_token,
+            'X-CKAN-API-Key' : config.ckan_token
+        }
+    }
+
+    request(options, (err, response, body) => {
+        console.log('response.statusCode:', response.statusCode)
+        if (err) { 
+            console.log('err:', err) 
+        } else if (body) {
+            console.log('body:', body) 
+            fs.writeFile('./json/starbucks.json', body, function(err) {
+                if (err) {
+                    return console.log(err)
+                }
+                console.log('The file was saved!')
+            })
+        } else {
+            console.log('Error: body not defined') 
+        }
+    })
+
+    console.log('END getJsonFileFromInternet')
 }
