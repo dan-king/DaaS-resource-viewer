@@ -177,7 +177,7 @@ function getCSVFileFromInternet() {
     console.log('END getCSVFileFromInternet')
 }
 
-getJsonFileFromInternet()
+//getJsonFileFromInternet()
 function getJsonFileFromInternet() {
     console.log('BEGIN getJsonFileFromInternet')
     const fs = require('fs')
