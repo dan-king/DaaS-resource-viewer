@@ -16,7 +16,7 @@
     "datatables.net": "^1.10.20",
     "datatables.net-bs4": "^1.10.20",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "handlebars": "^4.5.3",
     "jquery": "^3.4.1",
     "request": "^2.88.0",
